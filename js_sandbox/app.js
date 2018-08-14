@@ -19,7 +19,7 @@ let name1 = 'Abdullah';
 // CONST
 // these work differntly, constants can not be reassigned or changed
 const name2 = 'Monkey';
-console.log(name2);
+//console.log(name2);
 // however we can not do the following
 // name2 = 'Sara';
 // we always have to assign an inital value with const
@@ -87,35 +87,35 @@ val = lastName.substring(0,4);
 val = str.split(' ');
 // we also have replace() and includes()
 
-// TEMPLATE LITTERALS
-const myName = 'Abdullah';
-const age = 19;
-const job = 'Web Developer';
-const city = 'Brampton';
-let html;
-
-/*
-// without template strings (es5)
-html = '<ul>' +
-       '<li>Name: ' + myName + '</li>' +
-       '<li>Age: ' + age + '</li>' +
-       '<li>Job: ' + job + '</li>' +
-       '<li>City: ' + city + '</li></ul>';
-*/
-
-// with template strings
-// we use back tics
-html = `
-  <ul>
-    <li>Name: ${myName}<li>
-    <li>Age: ${age}<li>
-    <li>Job: ${job}<li>
-    <li>City: ${city}<li>
-  <ul>
-`;
-// can do conditionals, functions and so on inside template strings
-
-document.body.innerHTML = html;
+// // TEMPLATE LITTERALS
+// const myName = 'Abdullah';
+// const age = 19;
+// const job = 'Web Developer';
+// const city = 'Brampton';
+// let html;
+//
+// /*
+// // without template strings (es5)
+// html = '<ul>' +
+//        '<li>Name: ' + myName + '</li>' +
+//        '<li>Age: ' + age + '</li>' +
+//        '<li>Job: ' + job + '</li>' +
+//        '<li>City: ' + city + '</li></ul>';
+// */
+//
+// // with template strings
+// // we use back tics
+// html = `
+//   <ul>
+//     <li>Name: ${myName}<li>
+//     <li>Age: ${age}<li>
+//     <li>Job: ${job}<li>
+//     <li>City: ${city}<li>
+//   <ul>
+// `;
+// // can do conditionals, functions and so on inside template strings
+//
+// document.body.innerHTML = html;
 
 // ARRAYS
 const numbers = [43, 56, 33, 23, 44, 36, 5]
@@ -153,6 +153,138 @@ numbers.reverse(); // switches front and back
 curr = numbers.concat(numbers2);
 
 
+// sorting arrays
+curr = numbers.sort(); // this on its own sorts indivisual elements in the array
+// we have to use the 'compare' functions
+curr = numbers.sort(function(x,y){
+  return x - y;
+});
 
-console.log(numbers);
-console.log(curr);
+// Find
+function under50(num){
+  return num < 50;
+}
+
+curr = numbers.find(under50); // looks at our array and finds the first number under 50
+// right now we are now we are mutating the array above so disregard the result
+
+
+// OBJECT LITTERALS
+const person = {
+  firstName: 'Steve',
+  lastName: 'Smith',
+  age: 30,
+  hobbies: ['cricket', 'music'],
+  adress: {
+    city: 'miami',
+    state: 'florida',
+  },
+  getBirthYear: function(){
+    return 2018 - this.age; // this protains the current object
+  }
+}
+
+let var2;
+
+var2 = person;
+// get a spesific values
+var2 = person.firstName;
+var2 = person.adress.state;
+var2 = person.getBirthYear();
+// console.log(var2);
+// can also make an array of objects
+const people = [{name: 'steve', age:'10'}, {name: 'abd', age: '30'}];
+// can loop through these
+for(let i = 0; i < people.length; i++){
+  //console.log(people[i].name);
+}
+
+
+
+// DATES AND TIMES
+let val3;
+
+const today = new Date(); // if we do not pass in anything here it will be by default todays date
+let birthday = new Date('9-10-1999 11:25:00'); // this spesifes a spesific date
+birthday = new Date('November 17 1999'); // there are a lot of ways to define the date
+val3 = today.getMonth(); // this is 0 based, so 0 represents january
+val3 = today.getDay(); // Sunday represented by 1
+birthday.setFullYear(2000);
+//console.log(typeof val3); // the date is a reference type which is an object
+//console.log(birthday);
+
+
+
+// If statement comparison operators
+
+// the basic structire
+// if(something is true){
+//   do something
+// } else {
+//   do somethign else
+// }
+
+const id = 100;
+
+// EQUAL TO operator --> ==
+if(id == 100){
+  console.log('correct');
+} else {
+  concole.log('incoorect');
+}
+
+// NOT EQUAL TO operate --> !=
+// EQUAL TO VALUE AND TYPE operator --> ===
+// NOT EQUAL TO VALUE AND TYPE operator --> !==
+
+// to check if ID exists
+if(typeof id != 'undefined'){
+  console.log(`The ID IS ${id}`);
+} else {
+  console.log('no ID');
+}
+
+// GREATER THAN OR LESS THAN operator --> >, >=, <, <=
+
+// IF ELSE
+const color = 'red'
+
+if(color === 'red'){
+  console.log('color is red');
+} else if(color === 'blue'){
+  console.log('color is blue');
+} else {
+  console.log('color is not red or blue');
+}
+
+// LOGICAL OPERATORS
+const name3 = 'Steve';
+const age = 20;
+
+// AND operator represented by &&
+if(age > 0 && age < 12){
+  console.log(`${name3} is a child`)
+}
+// OR operator ||
+
+//TERNARY OPERATOR
+console.log(id === 100 ? 'CORRECT' : 'INCORRECT'); //ternary operator is ? and else is reprented by :
+
+
+// SWITCHES --> another way to validate conditions
+// instead of if else we will use a switch
+// inside of a switch you define different cases
+
+const color2 = 'orange'
+
+switch(color2){
+  case 'red': // case when we have color2 being red
+    console.log('color is red');
+    break;
+  case 'blue':
+    console.log('color is blue');
+    break;
+  default:
+    console.log('color is not either of them');
+    break;
+}
