@@ -288,3 +288,110 @@ switch(color2){
     console.log('color is not either of them');
     break;
 }
+
+// FUNCTION DECLARATIONS
+
+function  greet(firstName, lastName){ //firstName is a parameter
+  //console.log('hello'); // this is called the function scope or body
+  return 'Hello ' + firstName + ' ' + lastName
+}
+
+
+// if we want to call this function we do the following
+console.log(greet('John', 'Smith'));
+
+
+// FUNCTION EXPRESSIONS
+const square = function(x){
+return x*x;
+};
+
+// and if we were to call this
+console.log(square(8));
+
+// IMMEDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IFEs
+// this is a function that you declare and run at the same time
+
+(function(name){
+  console.log('Hello' + name);
+})('Brad')
+
+// PROPERTY METHODS
+const todo = {
+  add: function(){
+    console.log('add todo');
+  }
+}
+// we can call this by doing the following
+todo.add();
+
+
+// GENERAL LOOPS
+
+// for loop --> takes in  3 parameters seperated by semi colons
+// first parameter -> decleration of variable
+// second parameter -> condition
+// third parameter -> an increment of i
+
+for(t = 0; t < 10; t++){
+  if(t === 2){
+    console.log('yoo isa 2');
+    continue; // this will stop the itteration and go to the next
+  }
+  console.log(t);
+
+  if(t===5){
+    console.log('stop the loop');
+    break; // this terminates the entire funciton
+  }
+}
+
+// WHLITE LOOPS
+let i = 0;
+
+while(i < 10){ // condition the only thing that goes in here
+  console.log('number ' + i);
+  i++;
+}
+// DO WHILE
+// will always run once no matter what
+
+let z = 0;
+
+do {
+  console.log('Number ' + z);
+  z++;
+}
+while(i < 10); // this will be the condition
+// whatever we set i to, this will still run no matter what
+
+// for each array loop
+cars = ['civic', 'toyota', 'benz', 'range'];
+
+cars.forEach(function(cur){ // can take increment name, index, and entire array
+  console.log(cur);
+}); // takes in a call back funciton
+
+// MAP
+// used to return a different array
+const users1 = [
+  {id: 1, name: 'John'},
+  {id: 2, name: 'Steve'},
+  {id: 3, name: 'Mike'}
+];
+
+// want to create an array of just ids
+const ids = users1.map(function(user){
+  return user.id;
+})
+console.log(ids);
+
+// for in LOOPS
+const user2 = {
+  firstname: 'joe',
+  age: 40
+}
+
+for(let x in user2){
+  console.log(`${x} : ${user2[x]}`);
+}
